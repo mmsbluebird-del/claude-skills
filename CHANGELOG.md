@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — engineering/cross-model-review: a verified second opinion (companion to openai/codex-plugin-cc)
+
+New plugin built as a **companion** to OpenAI's [codex-plugin-cc](https://github.com/openai/codex-plugin-cc)
+(Apache-2.0), not a vendor of it. The upstream is a Node.js runtime that needs the Codex CLI and an
+OpenAI login; vendoring it would need an exception to this library's stdlib-Python, no-model-call
+rules. This plugin ships no upstream code and calls no model, and works with any reviewer.
+
+- `review_gate.py` — SKIP / foreground / background / adversarial from size, risk paths (auth, money,
+  migrations, secrets, infra, concurrency) and a diff fingerprint; exit 3 on an empty change.
+- `prompt_contract_builder.py` — block-structured prompt per job kind; exit 3 on a vague task, exit 4
+  on bundled jobs. Block text is original.
+- `findings_verifier.py` — the addition upstream lacks: checks each finding's file, line range and
+  quoted evidence against the working tree, and exits 4 on a rejected finding or a verdict that
+  contradicts its findings. Findings are then presented and the agent stops.
+- `cs-cross-model-reviewer` agent, `/cs:cross-model-review`, `/cs:review-gate`, 3 references. Counters:
+  skills 388 → 389; tools 727 → 730; refs 842 → 845; agents 118 → 119; commands 150 → 152; plugins 99 → 100.
+
 ### Added — engineering/spinning-up-deep-rl: the first book compiled by book-to-skill
 
 Knowledge-base plugin compiled end-to-end by `engineering/book-to-skill` from OpenAI's

@@ -1,0 +1,15 @@
+{
+  "name": "cross-model-review",
+  "description": "Get a second model's review without trusting it blindly. A companion to OpenAI's codex-plugin-cc that ships no upstream code and calls no model: review_gate.py decides whether a cross-model review is worth running (SKIP / foreground / background / adversarial, with risk-path detection and a diff fingerprint), prompt_contract_builder.py assembles a block-structured prompt and refuses vague or bundled tasks, and findings_verifier.py checks every finding's file, line range and quoted evidence against the working tree before it is presented. Findings are presented, then the agent stops until the user chooses what to fix. Ships cs-cross-model-reviewer agent, /cs:cross-model-review and /cs:review-gate commands, 3 stdlib tools, 3 references citing 6-7 sources each.",
+  "version": "2.12.0",
+  "author": {
+    "name": "Alireza Rezvani",
+    "url": "https://alirezarezvani.com"
+  },
+  "homepage": "https://github.com/alirezarezvani/claude-skills/tree/main/engineering/cross-model-review",
+  "repository": "https://github.com/alirezarezvani/claude-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/cross-model-review"
+  ]
+}

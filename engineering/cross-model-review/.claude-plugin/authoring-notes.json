@@ -1,0 +1,8 @@
+{
+  "attribution": {
+    "derived_from": "https://github.com/openai/codex-plugin-cc (commit db52e28f4d9ded852ab3942cea316258ae4ef346)",
+    "upstream_license": "Apache-2.0",
+    "upstream_copyright": "OpenAI",
+    "derivation_note": "Independent companion, not a fork: no upstream code, prompts or files are included. Informed by the upstream's published design (review/rescue split, XML prompt-block method, review-output shape, present-then-stop rule). The upstream Node.js runtime and its Codex CLI dependency were deliberately not vendored, to keep this library stdlib-Python-only with no model calls. README.md's 'Design decisions' list is authoritative."
+  }
+}

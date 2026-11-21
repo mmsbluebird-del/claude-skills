@@ -1,0 +1,28 @@
+{
+  "verdict": "needs-attention",
+  "summary": "Ship blocked: retry loop can re-deliver a message after a partial failure.",
+  "findings": [
+    {
+      "severity": "high",
+      "title": "Retry without idempotency key",
+      "body": "The worker retries the whole batch after a partial failure, so already-delivered items are sent again.",
+      "file": "review_gate.py",
+      "line_start": 50,
+      "line_end": 56,
+      "confidence": 0.8,
+      "evidence": "def decide(files: int, lines: int",
+      "recommendation": "Record delivered ids before the retry and skip them."
+    },
+    {
+      "severity": "medium",
+      "title": "Cited file does not exist",
+      "body": "This finding cites a path the reviewer invented; the verifier must reject it.",
+      "file": "src/queue/worker.py",
+      "line_start": 12,
+      "line_end": 14,
+      "confidence": 0.6,
+      "recommendation": "n/a"
+    }
+  ],
+  "next_steps": ["Add an idempotency key", "Re-run the review"]
+}
